@@ -133,13 +133,21 @@ reset:
 	orr	r0, r0, #0xd3
 	msr	cpsr,r0
 
-/* LED Test Code */
+/* 
+* light the led(GPL2 base address 0x1100_0000)
+* GPL2CON 0x0100 : Port group GPL2 configuration register
+* GPL2DAT 0x0104 : Port group GPL2 data register
+* GPL2PUD 0x0108 : Port group GPL2 pull-up/pull-down register
+* GPL2DRV 0x010C : Port group GPL2 drive strength control register
+* GPL2CONPDN 0x0110  : Port group GPL2 power down mode configuration register
+* GPL2PUDPDN 0x0114  : Port group GPL2 power down mode pull-up/pull-down register
+*/
 #if 1
-	ldr	r0, =0x11000104  /* GPL2(0)  */
+	ldr	r0, =0x11000104  /* GPL2  */
 	ldr	r1, =0x00000001	 /* GPL2(0 output high	*/
 	str	r1, [r0]
 	
-	ldr	r0, =0x11000100  /* GPL2(0)  */
+	ldr	r0, =0x11000100  /* GPL2  */
 	ldr	r1, =0x00000001	 /* GPL2(0 output high	*/
 	str	r1, [r0]
 #endif

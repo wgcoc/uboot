@@ -39,6 +39,9 @@ _TEXT_BASE:
 
 	.globl lowlevel_init
 lowlevel_init:
+	/* use iROM stack in bl2 */
+	ldr	sp, =0x02060000
+
 	push	{lr}
 
 	/* r5 has always zero */
@@ -64,6 +67,21 @@ lowlevel_init:
 	ldr	r2, =S5P_CHECK_SLEEP
 	cmp	r1, r2
 	beq	wakeup_reset
+
+        /* PS-Hold high */
+        ldr r0, =0x1002330c
+        ldr r1, [r0]
+        orr r1, r1, #0x300
+        str r1, [r0]
+
+        ldr     r0, =0x11000c08
+        ldr r1, =0x0
+        str r1, [r0]
+
+        /* Clear  MASK_WDT_RESET_REQUEST  */
+        ldr r0, =0x1002040c
+        ldr r1, =0x00
+        str r1, [r0]
 
 	/*
 	 * If U-boot is already running in ram, no need to relocate U-Boot.

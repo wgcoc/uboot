@@ -229,7 +229,7 @@ cache_init:
 
         /* LED Test Code */
 		#if 0
-        ldr r0, =0x11000080
+        ldr r0, =0x11000080 /*GPK2*/
         ldr r1, [r0]
         bic r1, r1, #0xf00
         orr r1, r1, #0x100
@@ -323,13 +323,13 @@ cache_init:
 
 
 
-	ldr	r0, =0x11000104  /* GPL2(0)  */
-	ldr	r1, =0x00000001	 /* GPL2(0 output high	*/
-	str	r1, [r0]
+	ldr	r0, =0x11000104  /* GPL2  */
+	ldr	r1, =0x00000001	 /* GPL2(0) 	*/
+	str	r1, [r0]			/*output high*/
 	
-	ldr	r0, =0x11000100  /* GPL2(0)  */
-	ldr	r1, =0x00000001	 /* GPL2(0 output high	*/
-	str	r1, [r0]
+	ldr	r0, =0x11000100  /* GPL2  */
+	ldr	r1, =0x00000001	 /* GPL2(0) 	*/
+	str	r1, [r0]			/*output high*/
 
 	
 	/* wait ?us */

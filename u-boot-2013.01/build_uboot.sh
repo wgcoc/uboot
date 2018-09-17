@@ -4,7 +4,7 @@
 if [ -z $1 ]
 then	
    echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-   echo "Please use correct make config.for example make SCP_1GDDR for SCP 1G DDR CoreBoard linux,android OS"
+   echo "Please use correct make config.for example make POP_1GDDR for POP 1G DDR CoreBoard linux,android OS"
    echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
    exit 0
 fi
